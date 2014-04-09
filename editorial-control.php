@@ -45,15 +45,22 @@ if (!defined('WPINC')){
 }
 
 /*----------------------------------------------------------------------------*
+ * SETUP
+ *----------------------------------------------------------------------------*/
+$ec_config = array();
+$ec_config['presstrends_api_key'] = false;//PressTrends API Key
+$ec_config['presstrends_api_auth'] = false;//PressTrends AUTH Key
+
+
+/*----------------------------------------------------------------------------*
  * Includes
  *----------------------------------------------------------------------------*/
-require_once('class.php');
-require_once('wp-updates-plugin.php');
+require_once('include/class.php');
 
- 
 /*----------------------------------------------------------------------------*
  * WP-Updates
  *----------------------------------------------------------------------------*/
+require_once('wp-updates-plugin.php');
 new WPUpdatesPluginUpdater_297( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__));
 
 // This is for testing only!
@@ -89,5 +96,6 @@ add_filter('transition_post_status', 'notify_status',10,3);
 add_action('admin_menu', 'ec_add_option_page');
 
 // PressTrends WordPress Action
-add_action('admin_init', 'presstrends_plugin');
-
+if(!empty($ec_config['presstrends_api_key']) && !empty($ec_config['presstrends_api_auth'])){
+	add_action('admin_init', 'presstrends_plugin');
+}
