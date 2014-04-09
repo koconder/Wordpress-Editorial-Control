@@ -1,26 +1,43 @@
 <?php
-/*
-Plugin Name: Editorial Control UK
-Description: Upgrade the contributor role in WordPress so that any contributor can also upload images and pictures. Now with stats included. Sends email notification when posts are pending review. With fixes for email layouts.
-Version: 1.0
-*/
-
-/*  Copyright 2013  Adam Clark  (email : adamc@tinweb.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
+/**
+ * Editorial Control UK
+ *
+ * Upgrade the contributor role in WordPress so that any contributor can also upload images and pictures.
+ * Sends email notification when posts are pending review, with fixes for email layouts.
+ *
+ * @package   Wordpress-Editorial-Control
+ * @author    Onder Vincent Koc <vincent@loophole.eu>
+ * @license   GPL-2.0+
+ * @link      https://github.com/koconder/Wordpress-Editorial-Control
+ * @copyright 2014 Onder Vincent Koc
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Editorial Control UK
+ * Plugin URI:        https://github.com/koconder
+ * Description:       Upgrade the contributor role in WordPress so that any contributor can also upload images and pictures and sends an email notification
+ * Version:           3.2.0
+ * Author:            Onder Vincent Koc
+ * Author URI:        https://github.com/koconder
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * 
+ * Copyright 2013 Vincent Koc (https://github.com/koconder)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ * 
+ */
 
 // Automatic updates
 require_once('wp-updates-plugin.php');
