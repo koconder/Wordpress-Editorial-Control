@@ -3,6 +3,10 @@
 Below is a rougth changelog to document changes to the plugin
 
 ##### Changes
+v3.2.1 date: 2014-04-09
+
+		- Show version number in Settings panel in footer
+
 v3.2.0 date: 2014-04-09
 
 		- HTML Filtering and Embed Capabillity given to Role

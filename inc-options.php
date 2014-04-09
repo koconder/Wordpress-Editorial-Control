@@ -46,4 +46,5 @@ if (!defined('WPINC')){
          </div>
      </form>
      <small>Powered by WP Editorial Control</small>
+     <small>v<?php echo plugin_get_version() ?></small>
 </div>
