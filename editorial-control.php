@@ -39,6 +39,9 @@
  * 
  */
 
+// Global Variable Config ~ https://codex.wordpress.org/Function_Reference/register_activation_hook
+global $ec_config;
+ 
 // If this file is called directly, abort.
 if (!defined('WPINC')){
     die;

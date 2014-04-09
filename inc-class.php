@@ -21,11 +21,11 @@ function editorial_control_defaults(){
 	$site_domain = ltrim($site_domain, 'www.');
 
 	//Email Settings
-	if(!empty($ec_config['default_editor_email'])){
+	if(empty($ec_config['default_editor_email'])){
 		//If we have nothing set sending to editor@{wordpressdomain}.com
 		$ec_config['default_editor_email'] = 'editor@' . $site_domain;
 	}
-	add_option('notificationemails', 'editor@pokerstars.com');
+	add_option('notificationemails', $ec_config['default_editor_email']);
 	add_option('approvednotification', 'yes');
 	add_option('declinednotification', 'yes');
 	add_option('fromemail', 'admin@'.$site_domain);
