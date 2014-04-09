@@ -1,4 +1,29 @@
-Wordpress-Editorial-Control
+Wordpress Editorial-Control Plugin
 ===========================
 
-pgrade the contributor role in WordPress so that any contributor can also upload images and pictures. Now with stats included. Sends email notification when posts are pending review. With fixes for email layouts.
+Upgrades the contributor role in WordPress so that any contributor can also upload images and pictures. A contributor is now made into a super-contributor.
+
+### Features
+* Email Notifications for Each Stage (Approval Emails in TXT & HTML)
+* WP-Updates Support
+* Presstrends Support
+* Admin Options Page
+* Config in Plugin to setup defaults
+* Embed HTML on/off for Contributors
+
+### Copyright & Licence
+Copyright 2013 Vincent Koc (https://github.com/koconder)
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
