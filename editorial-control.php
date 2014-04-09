@@ -50,7 +50,7 @@ if (!defined('WPINC')){
 $ec_config = array();
 $ec_config['presstrends_api_key'] = false;//PressTrends API Key
 $ec_config['presstrends_api_auth'] = false;//PressTrends AUTH Key
-
+$ec_config['default_editor_email'] = false;//Editor Email
 
 /*----------------------------------------------------------------------------*
  * Includes
@@ -87,13 +87,13 @@ register_uninstall_hook(__FILE__,'editorial_control_uninstall');
  * Post - Email Hooks
  *----------------------------------------------------------------------------*/
 // Hook for post status changes
-add_filter('transition_post_status', 'notify_status',10,3);
+add_filter('transition_post_status', 'editorial_control_notify_status',10,3);
 
 /*----------------------------------------------------------------------------*
  * Admin and Analytics
  *----------------------------------------------------------------------------*/
 // Hook for adding admin menus
-add_action('admin_menu', 'ec_add_option_page');
+add_action('admin_menu', 'editorial_control_add_option_page');
 
 // PressTrends WordPress Action
 if(!empty($ec_config['presstrends_api_key']) && !empty($ec_config['presstrends_api_auth'])){

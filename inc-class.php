@@ -4,21 +4,32 @@
  * Plugin - Default Settings
  */
 function editorial_control_defaults(){
+	//Load Config
+	global $ec_config;
+	
+	//Load Roles
 	add_option('supercontributor', 'yes');
 	update_option('supercontributor', 'yes');
 	allow_contributor_uploads();
 
-	// add_action('admin_init', 'allow_contributor_uploads');
-	// if ( current_user_can('contributor') && !current_user_can('upload_files') ) {
-	// }
+	//Build Site Email
+	$site_domain = parse_url(get_option('siteurl') , PHP_URL_HOST);
+	$site_domain = ltrim($site_domain, 'www.');
 
+	//Email Settings
+	if(!empty($ec_config['default_editor_email'])){
+		//If we have nothing set sending to editor@{wordpressdomain}.com
+		$ec_config['default_editor_email'] = 'editor@' . $site_domain;
+	}
 	add_option('notificationemails', 'editor@pokerstars.com');
 	add_option('approvednotification', 'yes');
 	add_option('declinednotification', 'yes');
-	$from_email = parse_url(get_option('siteurl') , PHP_URL_HOST);
-	$from_email = ltrim($from_email, 'www.');
-	$from_email = "admin@" . $from_email;
-	add_option('fromemail', $from_email);
+	add_option('fromemail', 'admin@'.$site_domain);
+
+	// Test
+	// add_action('admin_init', 'allow_contributor_uploads');
+	// if ( current_user_can('contributor') && !current_user_can('upload_files') ) {
+	// }
 }
 
 /**
@@ -46,9 +57,9 @@ function editorial_control_uninstall(){
 /**
  * Menu Hook - Add Sub-Menu
  */
-function ec_add_option_page()
+function editorial_control_add_option_page()
 {
-	add_options_page('Editorial Control', 'Editorial Control', 'edit_themes', 'editorial_control', 'ec_options_page');
+	add_options_page('Editorial Control', 'Editorial Control', 'edit_themes', 'editorial_control', 'editorial_control_options_page');
 }
 
 /**
@@ -133,7 +144,7 @@ function presstrends_plugin(){
 /**
  * Admin Page Functions
  */
-function ec_options_page(){
+function editorial_control_options_page(){
 	//Check if we have a save
 	if(isset($_POST['save'])){
 		//Update the Super Contibutor
@@ -164,7 +175,7 @@ function ec_options_page(){
 /**
  * Email Notifications Function
  */
-function notify_status($new_status, $old_status, $post){
+function editorial_control_notify_status($new_status, $old_status, $post){
 	global $current_user;
 	
 	$contributor = get_userdata($post->post_author);
