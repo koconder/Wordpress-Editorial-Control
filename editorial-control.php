@@ -39,6 +39,11 @@
  * 
  */
 
+// If this file is called directly, abort.
+if (!defined('WPINC')){
+    die;
+}
+
 // Automatic updates
 require_once('wp-updates-plugin.php');
 new WPUpdatesPluginUpdater_297( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__));
