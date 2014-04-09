@@ -1,3 +1,9 @@
+<?php
+// If this file is called directly, abort.
+if (!defined('WPINC')){
+    die;
+}
+?>
 <div class="wrap"><h2>Editorial Control Status</h2>
      <form name="site" action="" method="post" id="notifier">
          <div id="review">
