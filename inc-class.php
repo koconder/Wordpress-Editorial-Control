@@ -11,10 +11,15 @@ function editorial_control_defaults(){
 	//Load Config
 	global $ec_config;
 	
-	//Load Roles
+	//Load Roles Super Contibutor
 	add_option('supercontributor', 'yes');
 	update_option('supercontributor', 'yes');
 	allow_contributor_uploads();
+	
+	//Load Roles HTML Embeds
+	add_option('contributorembed', 'yes');
+	update_option('contributorembed', 'yes');
+	allow_contributor_embeds();
 
 	//Build Site Email
 	$site_domain = parse_url(get_option('siteurl') , PHP_URL_HOST);
@@ -42,7 +47,9 @@ function editorial_control_defaults(){
 function editorial_control_deactivate(){
 	$contributor = get_role('contributor');
 	$contributor->remove_cap('upload_files');
+	$contributor->remove_cap('unfiltered_html');
 	update_option('supercontributor', '');
+	update_option('contributorembed', '');
 }
 
 /**
@@ -51,6 +58,7 @@ function editorial_control_deactivate(){
 function editorial_control_uninstall(){
 	$contributor = get_role('contributor');
 	$contributor->remove_cap('upload_files');
+	$contributor->remove_cap('unfiltered_html');
 	delete_option('supercontributor');
 	delete_option('notificationemails');
 	delete_option('approvednotification');
@@ -83,7 +91,23 @@ function disallow_contributor_uploads(){
 }
 
 /**
- * Contributor Uploads - Disallow
+ * HTML Embeds - Allow
+ */
+function allow_contributor_embeds(){
+	$contributor = get_role('contributor');
+	$contributor->add_cap('unfiltered_html');
+}
+
+/**
+ * HTML Embeds - Disallow
+ */
+function disallow_contributor_embeds(){
+	$contributor = get_role('contributor');
+	$contributor->remove_cap('unfiltered_html');
+}
+
+/**
+ * Press Trends
  */
 function presstrends_plugin(){
 	//Load Config
@@ -153,13 +177,20 @@ function editorial_control_options_page(){
 	if(isset($_POST['save'])){
 		//Update the Super Contibutor
 		update_option('supercontributor', $_POST['supercontributor']);
-		
-		//Check Allow-Disallow Uploads
 		if (isset($_POST['supercontributor'])) {
 			allow_contributor_uploads();
 		}
 		else {
 			disallow_contributor_uploads();
+		}
+
+		//Update the HTML Embed
+		update_option('contributorembed', $_POST['contributorembed']);
+		if (isset($_POST['contributorembed'])) {
+			allow_contributor_embeds();
+		}
+		else {
+			disallow_contributor_embeds();
 		}
 
 		//Update Notification Emails

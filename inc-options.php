@@ -23,6 +23,11 @@ if (!defined('WPINC')){
                          Allow the contributor role to upload images.
                      </label>
                      <br/>
+                     <label for="contributorembed" class="selectit">
+                         <input type="checkbox" tabindex="2" id="contributorembed" name="contributorembed" value="yes" <?php if(get_option('contributorembed')=='yes') echo 'checked="checked"'; ?> />
+                         Allow the contributor role to place javascript and embeds.
+                     </label>
+                     <br/>
                      <label for="approvednotification" class="selectit">
                          <input type="checkbox" tabindex="2" id="approvednotification" name="approvednotification" value="yes" <?php if(get_option('approvednotification')=='yes') echo 'checked="checked"'; ?> />
                          Notify the contributor when their post is approved.
