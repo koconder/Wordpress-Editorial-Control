@@ -157,7 +157,7 @@ function ec_options_page(){
 	}
 	
 	//Load Admin Page
-	include('options.php');	
+	include('inc-options.php');	
 }
 
 
